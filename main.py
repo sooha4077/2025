@@ -1,32 +1,53 @@
 import streamlit as st
 
-st.set_page_config(page_title="MBTI 진로 탐색", layout="wide")
+st.set_page_config(page_title="🌟 MBTI 진로 탐색 🌟", layout="wide")
 
-# 사이드바 메뉴
-menu = st.sidebar.selectbox("메뉴 선택", ["홈", "검사", "결과", "자료실"])
+# 🎨 사이드바 메뉴
+menu = st.sidebar.selectbox("📌 메뉴 선택", ["🏠 홈", "📝 검사", "📊 결과", "📚 자료실"])
 
-if menu == "홈":
-    st.title("🌟 MBTI 기반 진로 탐색 웹앱")
-    st.write("당신의 성격을 기반으로 진로와 전공을 추천해 드립니다!")
+# 🏠 홈 화면
+if menu == "🏠 홈":
+    st.title("🌈 MBTI 기반 진로 탐색 웹앱 ✨")
+    st.markdown("당신의 성격을 통해 **진로와 전공, 직업**을 추천해드려요! 🎓💼🚀")
     st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=200)
+    st.markdown("👉 왼쪽 사이드바에서 **검사**를 시작해 보세요!")
 
-elif menu == "검사":
-    st.header("🔎 MBTI 간단 검사")
-    q1 = st.radio("Q1. 새로운 사람 만나는 게 즐겁나요?", ["예", "아니오"])
-    q2 = st.radio("Q2. 계획보다는 즉흥적인 걸 좋아하나요?", ["예", "아니오"])
-    # ... 질문 추가
+# 📝 검사 화면
+elif menu == "📝 검사":
+    st.header("🧩 MBTI 간단 검사 🎭")
+    st.write("각 질문에 솔직하게 대답해주세요 💬")
 
-    if st.button("결과 보기"):
-        st.success("당신의 MBTI는... INFP (예시)")
+    # ✅ 질문 리스트
+    q1 = st.radio("😎 새로운 사람 만나는 게 즐겁나요?", ["예 👍", "아니오 👎"])
+    q2 = st.radio("📅 계획보다는 즉흥적인 게 더 좋아요?", ["예 🎉", "아니오 📖"])
+    q3 = st.radio("🔍 현실적 사실보다 상상과 가능성에 더 끌리나요?", ["예 🌌", "아니오 🧱"])
+    q4 = st.radio("❤️ 의사결정할 때 감정보다 논리에 더 의존하나요?", ["예 🧠", "아니오 💖"])
+    q5 = st.radio("🗂️ 정리된 계획이 있어야 안심되나요?", ["예 📊", "아니오 🌪️"])
+    q6 = st.radio("🗣️ 파티에서 대화를 주도하는 편인가요?", ["예 🎤", "아니오 🙈"])
+    q7 = st.radio("🛠️ 새로운 아이디어를 시도하는 걸 좋아하나요?", ["예 💡", "아니오 🔒"])
+    q8 = st.radio("⚖️ 공정한 규칙보다 사람의 감정을 더 중시하나요?", ["예 🤗", "아니오 ⚖️"])
+    q9 = st.radio("🕐〽️ 시간 약속과 규칙을 꼭 지켜야 한다고 생각하나요?", ["예 ⏰", "아니오 🎶"])
 
-elif menu == "결과":
-    st.header("📊 검사 결과")
-    st.subheader("당신의 MBTI: INFP")
-    st.write("이상주의적이고 창의적인 성향. 문학, 예술, 상담 분야에 적합합니다.")
+    if st.button("✨ 결과 보기 ✨"):
+        st.success("🎉 당신의 MBTI는... INFP (예시) 🎉")
+
+# 📊 결과 화면
+elif menu == "📊 결과":
+    st.header("🌟 검사 결과 🌟")
+    st.subheader("🧩 당신의 MBTI: **INFP** 🎭")
+    st.markdown("""
+    - ✨ 성격 특징: 이상주의적이고 창의적, 따뜻한 마음 💖
+    - 🎓 추천 학과: 문예창작학과, 심리학과, 디자인학과
+    - 💼 추천 직업: 작가 ✍️, 상담사 🗨️, 디자이너 🎨, 교사 👩‍🏫
+    """)
+    st.balloons()
+
+# 📚 자료실
+elif menu == "📚 자료실":
+    st.header("📖 MBTI별 진로 자료 🛤️")
+    st.write("유형별로 추천 학과와 직업을 확인하세요! 🧭")
     st.table({
-        "추천 직업": ["작가", "상담사", "디자이너", "교사"],
+        "MBTI": ["ENFP", "INTJ", "ISFJ", "ESTP"],
+        "추천 학과": ["광고홍보, 언론", "공학, 연구", "간호, 교육", "경영, 스포츠"],
+        "추천 직업": ["기획자, PD", "과학자, 개발자", "간호사, 교사", "기업가, 운동선수"]
     })
-
-elif menu == "자료실":
-    st.header("📚 MBTI별 진로 자료")
-    st.write("MBTI 유형별로 추천 진로와 학과를 정리했습니다.")
